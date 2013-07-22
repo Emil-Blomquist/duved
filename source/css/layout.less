@@ -1,0 +1,140 @@
+@duved-red: #d00f1e;
+
+
+.hide {
+	display: none;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+}
+p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 24px;
+	&:first-letter {
+		text-transform: uppercase;
+		font-size: 25px;
+	}
+}
+h1 {
+	font-family: 'Lobster', cursive;
+	font-size: 32px;
+	&:first-letter {
+		text-transform: uppercase;
+	}
+}
+
+/* spec width */
+.container {
+	width: 900px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+
+/* nav */
+nav ul li {
+	width: 140px;
+	height: 80px;
+	box-sizing: border-box; /* need webkit and so on for publish */
+	display: inline-block;
+	font-family: 'Lobster', cursive;
+	font-size: 40px;
+	text-align: center;
+
+	&.active a {
+		color: @duved-red !important;
+	} 
+}
+
+
+header.fixed {
+	position: fixed;
+	width: 100%;
+	height: 80px;
+	z-index: 2;
+	background: rgba(0, 0, 0, 0.7);
+
+	-webkit-transition:all 400ms ease; /* need more! */
+    -moz-transition:all 400ms ease;
+
+    &.hide {
+    	top: -100px;
+    	display: block;
+    }
+
+	nav ul li {
+		padding-top: 10px;
+
+		a {
+			color: #dddddd;
+			&:hover {
+				color: #ffffff;
+			}
+		}
+
+		&.active {
+			border-bottom: 4px solid @duved-red;
+		} 
+	}
+}
+
+.wrapper {
+	z-index: 1;
+
+
+
+	.section-image {
+		width: 100%;
+		min-height: 300px;	/* for now... */
+		background-color: #9c39c3;	/* for now... */
+
+		&.first {
+			height: 600px;
+			background-color: #345abc;
+		}
+	}
+
+	section {
+		padding-top: 70px;
+		padding-bottom: 70px;
+
+		&.first {
+			padding-top: 0;
+
+			header {
+				margin-bottom: 100px;
+				nav ul li {
+					padding-top: 20px;
+
+
+					a {
+						color: #333333;
+						&:hover {
+							color: #000000;
+						}
+					}
+
+					&.active {
+						border-top: 4px solid @duved-red;
+					} 
+				}
+			}
+
+
+		}
+	}
+}
+
+
+
+footer {
+	width: 100%;
+	height: 100px;
+	background-color: #333;
+}
