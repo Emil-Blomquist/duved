@@ -25,5 +25,5 @@ platforms :mri_18 do
 end
 
 
-# test?
+# require js thing
 gem 'sprockets', '~> 2.0'

@@ -1,5 +1,69 @@
 @duved-red: #d00f1e;
 
+.container-width () {
+	width: 80%;
+	max-width: 1020px;
+}
+
+.transition (@params) {
+	-webkit-transition: @params;
+    -moz-transition: @params;
+    -ms-transition: @params;
+	-o-transition: @params;
+	transition: @params;
+}
+
+.box-sizing (@param: border-box) {
+	-moz-box-sizing: @param;
+	box-sizing: @param;
+}
+
+
+.precise-transition (@properties; @durations; @timings; @delays: 0ms) {
+	-webkit-transition-property: @properties;
+	-webkit-transition-duration: @durations;
+	-webkit-transition-timing-function: @timings;
+	-webkit-transition-delay: @delays;
+	-moz-transition-property: @properties;
+	-moz-transition-duration: @durations;
+	-moz-transition-timing-function: @timings;
+	-moz-transition-delay: @delays;
+	-ms-transition-property: @properties;
+	-ms-transition-duration: @durations;
+	-ms-transition-timing-function: @timings;
+	-ms-transition-delay: @delays;
+	-o-transition-property: @properties;
+	-o-transition-duration: @durations;
+	-o-transition-timing-function: @timings;
+	-o-transition-delay: @delays;
+	transition-property: @properties;
+	transition-duration: @durations;
+	transition-timing-function: @timings;
+	transition-delay: @delays;
+}
+
+.transform (@param) {
+	-webkit-transform: @param;
+    -moz-transform: @param;
+    -ms-transform: @param;
+	-o-transform: @param;
+	transform: @param;
+}
+
+.animation (@param) {
+	-webkit-animation: @param;
+    -moz-animation: @param;
+    -ms-animation: @param;
+	-o-animation: @param;
+	animation: @param;
+}
+
+// chrashes my chrome on ubuntu :(
+body {
+	// -webkit-transform: translateZ(0);	 // full hardware acceleration on animations, activate the 3D rendering engine
+	// -moz-transform: translateZ(0);	// full hardware acceleration on animations, activate the 3D rendering engine
+	background-color: #cccccc;
+}
 
 .hide {
 	display: none;
@@ -23,15 +87,16 @@ p {
 }
 h1 {
 	font-family: 'Lobster', cursive;
-	font-size: 32px;
+	font-size: 34px;
 	&:first-letter {
 		text-transform: uppercase;
 	}
 }
 
+
 /* spec width */
 .container {
-	width: 900px;
+	.container-width;
 	margin-right: auto;
 	margin-left: auto;
 }
@@ -41,7 +106,7 @@ h1 {
 nav ul li {
 	width: 140px;
 	height: 80px;
-	box-sizing: border-box; /* need webkit and so on for publish */
+	.box-sizing;
 	display: inline-block;
 	font-family: 'Lobster', cursive;
 	font-size: 40px;
@@ -55,13 +120,16 @@ nav ul li {
 
 header.fixed {
 	position: fixed;
+	top: 0px;
 	width: 100%;
 	height: 80px;
-	z-index: 2;
+	z-index: 10;
 	background: rgba(0, 0, 0, 0.7);
 
-	-webkit-transition:all 400ms ease; /* need more! */
-    -moz-transition:all 400ms ease;
+	// iOS fix...
+	visibility: visible !important;
+
+	.transition(top 400ms ease);
 
     &.hide {
     	top: -100px;
@@ -85,30 +153,120 @@ header.fixed {
 }
 
 .wrapper {
+	position: relative;
 	z-index: 1;
 
-
-
-	.section-image {
-		width: 100%;
-		min-height: 300px;	/* for now... */
-		background-color: #9c39c3;	/* for now... */
-
-		&.first {
-			height: 600px;
-			background-color: #345abc;
-		}
+	.scroll-image-placeholder {
+		position: relative;
+		overflow: hidden;
+		z-index: 1;
 	}
 
+	
+
 	section {
+		position: relative;
 		padding-top: 70px;
 		padding-bottom: 70px;
+		background-color: #ffffff;
+		z-index: 2;
+
+
+
+
+
+
+
+		@size: 1.2;
+		.image-previewer {
+			position: relative;
+			overflow: hidden;
+			height: (150px * 1.3*@size);
+
+			.scroll-left, .scroll-right {
+				position: absolute;
+				top: (25px + (150px * (1.3*@size - 1)/2));
+				width: 50px;
+				height: 100px;
+				padding-top: 7px;
+				background-color:  rgba(0, 0, 0, 0.5);
+				z-index: 3;
+				font-family: 'Open Sans', sans-serif;
+				font-size: 60px;
+				color: rgba(255, 255, 255, 0.5);
+				cursor: pointer;
+
+				.box-sizing;
+			}
+
+			.scroll-left {
+				left: 0;
+				border-top-right-radius: 75px;
+				border-bottom-right-radius: 75px;
+				padding-left: 4px;
+			}
+			.scroll-right {
+				right: 0;
+				border-top-left-radius: 75px;
+				border-bottom-left-radius: 75px;
+				padding-left: 11px;
+			}
+			.scroll-left:hover {
+				left: -10px;
+				.transition(left 300ms ease);
+			}
+			.scroll-right:hover {
+				right: -10px;
+				.transition(right 300ms ease);
+			}
+
+			.container {
+				position: relative;
+
+				.wrapper {
+					left: 0px;
+					float: left;
+					overflow: visible;
+					top: (150px * (1.3*@size - 1)/2);
+
+					.transition(all 300ms ease);
+
+					.thumbnail {
+						position: relative;
+						float: left;
+						height: 150px;
+						width: 200px;
+						cursor: pointer;
+						z-index: 1;
+						background-size: 100% 100%;
+						background-repeat: no-repeat;
+						background-position: center center;
+
+						.transition(all 200ms ease);
+
+						&:hover {
+							height: (150px * @size);
+							width: (200px * @size);
+
+							margin-left: (200px * -(@size - 1)/2);
+							margin-right: (200px * -(@size - 1)/2);
+							margin-top: (150px * -(@size - 1)/2);
+							margin-bottom: (150px * -(@size - 1)/2);
+
+							box-shadow: 0 3px 6px #000000;
+
+							z-index: 200;	// overkill cause of transition
+						}
+					}
+				}
+			}
+		}
 
 		&.first {
 			padding-top: 0;
 
 			header {
-				margin-bottom: 100px;
+				margin-bottom: 80px;
 				nav ul li {
 					padding-top: 20px;
 
@@ -132,9 +290,252 @@ header.fixed {
 }
 
 
+.scroll-images {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+
+	.scroll-image-container {
+		position: fixed;
+		width: 100%;
+		overflow: hidden;
+
+		.scroll-image {
+			position: absolute;
+			width: 100%;
+			background-color: #000000;
+			background-repeat: no-repeat;
+
+			// .transition(height 400ms ease);
+
+			
+		}
+	}
+}
+
+.image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	background-position: center center;
+	background-repeat: no-repeat;
+	z-index: 1;
+
+	&.transition {
+		.transition(opacity 3000ms ease);
+	}
+
+	&.top {
+		z-index: 2;
+	}
+
+	&.hide {
+		opacity: 0;
+		display: block;
+	}
+}
+
 
 footer {
 	width: 100%;
 	height: 100px;
 	background-color: #333;
+
+
+	nav {
+		.container-width;
+		padding-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+
+		ul li {
+			height: auto;
+			width: auto;
+			display: inline;
+			font-family: 'Open Sans', sans-serif;
+			text-align: left;
+			font-size: 14px;
+
+			a {
+				color: #999999;
+			}
+
+			&.active a {
+				color: @duved-red !important;
+			}
+
+			&:not(:last-child):after {
+				content: '•';
+				margin: 0 10px 0 10px;
+				color: #ffffff;
+			}
+		}
+	}
+
+}
+
+
+.modal {
+	position: fixed;
+	z-index: 11;
+	width: 100%;
+	opacity: 1;
+	visibility: visible;
+
+	.transition(opacity 300ms ease);
+
+	&.hide {
+		display: inline;
+		opacity: 0 !important;
+		visibility: hidden !important;
+		.precise-transition(opacity, visibility; 300ms, 0; ease; 0, 300ms);
+	}
+
+	.backdrop {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	.content-holder {
+		position: relative;
+		float: left;
+		z-index: 3;
+		opacity: 1;
+
+		.transition(opacity 300ms ease);
+	}
+
+	.loading {
+		position: relative;
+		top: 200px;
+		width: 188px;
+		height: 300px;
+		margin-left: auto;
+		margin-right: auto;
+		z-index: 2;
+		opacity: 1;
+
+		.transition(opacity 300ms ease);
+
+		div:not(.gear) {
+			position: absolute;
+			top: 200px;
+			width: 100%;
+			text-align: center;
+			font-family: 'Open Sans', sans-serif;
+			color: #ffffff;
+
+		}
+
+		.gear {
+			position: absolute;
+			background-color: #222222;
+			width: 100px;
+			height: 100px;
+			border-radius: 50px;
+
+			&:nth-child(1) {
+
+				.animation(rotating 2s linear infinite);
+			}
+
+			&:nth-child(2) {
+				left: 87px;
+				top: 66px;
+
+				.animation(rotating 2s linear infinite reverse);
+			}
+
+			// gear "pigs"
+			div {
+				position: absolute;
+				left: -10px;
+				top: 44px;
+				width: 120px;
+				height: 12px;
+				background-color: inherit;
+			}
+
+			// animations
+			.rotating {
+				from {.transform(rotate(0deg))}
+				to {.transform(rotate(90deg))}
+			}
+			@-webkit-keyframes rotating {.rotating;}
+			@-moz-keyframes rotating {.rotating;}
+			@-ms-keyframes rotating {.rotating;}
+			@-o-keyframes rotating {.rotating;}
+			@keyframes rotating {.rotating;}
+
+			// creates classes for gear "pigs"
+			.loopingClass (@index) when (@index > 0) {
+				(~"div:nth-child(@{index})") {
+					@deg: (@index*30);
+					.transform(~"rotate(@{deg}deg)");
+
+				}
+				.loopingClass(@index - 1);
+			}
+			.loopingClass (0) {}
+			.loopingClass (6);
+		}
+	}
+
+	.box {
+		position: relative;
+		min-width: 200px;
+		min-height: 200px;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #ffffff;
+		z-index: 2;
+	}
+}
+
+
+
+
+
+
+@media all and (max-width: 480px) {
+	header.fixed {
+		height: 50px;
+
+		&.hide {
+			top: 0px;
+			visibility: visible !important;
+			display: inline !important;
+			opacity: 1 !important;
+		}
+	}	
+
+	.wrapper {
+
+		.scroll-image-placeholder.first {
+			// margin-bottom: -100px;
+		}
+
+		section.first {
+			padding-top: 30px;
+
+			header {
+				display: none;
+			}
+		}
+	}
+
+	nav ul li {
+		height: 50px;
+		width: auto;
+		margin-left: 10px;
+		margin-right: 10px;
+		padding-left: 5px;
+		padding-right: 5px;
+		display: inline-block;
+		font-size: 20px;
+	}
 }

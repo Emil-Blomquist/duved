@@ -1,4 +1,4 @@
-$(window).scroll(function (event)
+var fix_header = function ()
 {
 	var nav_offset, scroll_top, nav_height;
 
@@ -15,4 +15,4 @@ $(window).scroll(function (event)
 	{
 		$('header.fixed').addClass('hide');
 	}
-});
+}
