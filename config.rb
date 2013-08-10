@@ -36,7 +36,7 @@
 # activate :automatic_image_sizes
 
 # Reload the browser automatically whenever files change
-activate :livereload
+# activate :livereload
 
 # Methods defined in the helpers block are available in templates
 # helpers do
@@ -51,15 +51,6 @@ set :js_dir, 'js'
 
 set :images_dir, 'img'
 
-# Super-pretty URL:s using directorys for every html-page.
-activate :directory_indexes
-
-# Prevent middleman from putting a layout to the sitemap.xml
-page "/sitemap.xml", :layout => false
-
-# Ignore stuff that's not supposed to be inluded in the website
-  ignore '*.md'
-
 # Build-specific configuration
 configure :build do
   # For example, change the Compass output style for deployment
@@ -69,21 +60,14 @@ configure :build do
   activate :minify_javascript
 
   # Enable cache buster
-  activate :asset_hash, :ignore => 'img/signature/*'
-
-  # Minify HTML
-  activate :minify_html
-
-  # GZip on build
-  activate :gzip
-
-  # Img optimizing (requires local libs outside the gem system. For more info, look at https://github.com/toy/image_optim)
-  # activate :image_optim
+  # activate :asset_hash
 
   # Use relative URLs
   # activate :relative_assets
 
   # Or use a different image path
   # set :http_path, "/Content/images/"
-
 end
+
+# live reload
+activate :livereload

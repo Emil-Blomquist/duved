@@ -1,7 +1,6 @@
 ---
 title: Duved
 ---
-
 <header class="fixed hide">
 	<div class="container">
 		<%= partial "navbar" %>
@@ -10,10 +9,8 @@ title: Duved
 		<div></div><div></div><div></div><div></div>
 	</div>
 </header>
-
 <div class="wrapper">
 	<div class="scroll-image-placeholder first"></div>
-
 	<section id="duved" class="first">
 		<header>
 			<div class="container">
@@ -38,12 +35,9 @@ title: Duved
 				Se <a href="http://arecrosscountry.com/" target="_blank">http://arecrosscountry.com/</a> för spårstatus.
 			</p>
 		</div>
-
 		<div class="image-viewer"></div>
 	</section>
-
 	<div class="scroll-image-placeholder second"></div>
-
 	<section id="stugan">
 		<div class="container">
 			<h1>Stugan</h1>
@@ -74,13 +68,9 @@ title: Duved
 			Det finns också skotork.
 			</p>
 		</div>
-
 		<div class="image-viewer"></div>
 	</section>
-
-
 	<div class="scroll-image-placeholder third"></div>
-
 	<section id="uthyrning">
 		<div class="container">
 			<h1>Uthyrning</h1>
@@ -90,28 +80,27 @@ title: Duved
 			<p>
 				Uthyrningsperioden är söndag-söndag och följande priser gäller för vintersäsongen 2014:
 			</p>
-			<p>
-				v.1 - 10900 kr - uthyrt<br>
-				v.2-4 - 3500 kr<br>
-				v.5-6 - 4500 kr<br>
-				v.7 - 7000 kr<br>
-				v.8 - 8500 kr - uthyrt<br>
-				v.9 - 10900 kr<br>
-				v.10 - 7700 kr<br>
-				v.11 - 7200 kr<br>
-				v.12 - 7000 kr<br>
-				v.13 - 6600 kr<br>
-				v.14 - 6200 kr<br>
-				v.15 - 5800 kr<br>
-				v.16 - 8200 kr<br>
-				v.17 - 4500 kr
-			</p>
+			<table>
+				<thead>
+					<tr>
+						<td>Vecka</td>
+						<td>Pris</td>
+						<td>Status</td>
+					</tr>
+				</thead>
+				<tbody>
+					<% data.rental.weeks.each do |week| %>
+						<tr>
+							<td><%= week[0] %></td>
+							<td><%= week[1] %> kr</td>
+							<td><%= week[2] %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
 		</div>
 	</section>
-
-
 	<div class="scroll-image-placeholder fourth"></div>
-
 	<section id="kontakt">
 		<div class="container">
 			<h1>Kontakt</h1>
@@ -122,7 +111,6 @@ title: Duved
 			</p>
 		</div>
 	</section>
-
 	<footer>
 		<div class="container">
 			<%= partial "navbar" %>
