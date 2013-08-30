@@ -156,6 +156,7 @@ header.fixed {
 	width: 100%;
 	// min-height: 80px;
 	z-index: 10;
+	background: rgb(100, 100, 100);	// ie8 fallback
 	background: rgba(0, 0, 0, 0.7);
 
 	// iOS fix...
@@ -372,7 +373,7 @@ header.fixed {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: #000000;
+	// background-color: #000000;		// commented out for ie8, else black images...
 	background-position: center center;
 	background-repeat: no-repeat;
 	z-index: 1;
