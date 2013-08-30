@@ -67,10 +67,10 @@ var Image_carusel = function (json)
 			// 'transition-duration': this.fade*1000 + 'ms'
 		});
 
-		this.continue();
+		this.next();
 	}
 
-	this.continue = function ()
+	this.next = function ()
 	{
 		var that = this;
 
