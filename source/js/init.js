@@ -12,36 +12,62 @@ $(window).ready(function ()
 	// initiate image viwer
 	new Image_viewer(
 	{
-		'viewer': $('#stugan .image-viewer'),
+		'viewer': $('#stugan .image-viewer.one'),
 		'thumbnails':
 			[
-				'img/thumbs/color/indoors/1.jpg',
 				'img/thumbs/color/indoors/5.jpg',
-				'img/thumbs/color/indoors/6.jpg',
-				'img/thumbs/color/indoors/8.jpg',
-				'img/thumbs/color/indoors/9.jpg',
-				'img/thumbs/color/indoors/blue-bedroom.jpg',
-				'img/thumbs/color/indoors/red-bedroom.jpg',
 				'img/thumbs/color/indoors/hallway.jpg',
-				'img/thumbs/color/indoors/ski-storage.jpg',
-				'img/thumbs/color/indoors/staircase.jpg',
+				'img/thumbs/color/indoors/blue-bedroom.jpg',
 				'img/thumbs/color/indoors/large-bedroom.jpg',
-				'img/thumbs/color/indoors/wax-room.jpg'
+				'img/thumbs/color/indoors/staircase.jpg',
+				'img/thumbs/color/indoors/wax-room.jpg',
+        'img/thumbs/color/indoors/ski-storage.jpg'
 			],
 		'images':
 			[
-				'img/color/indoors/1.jpg',
 				'img/color/indoors/5.jpg',
+				'img/color/indoors/hallway.jpg',
+				'img/color/indoors/blue-bedroom.jpg',
+				'img/color/indoors/large-bedroom.jpg',
+				'img/color/indoors/staircase.jpg',
+				'img/color/indoors/wax-room.jpg',
+				'img/color/indoors/ski-storage.jpg'
+			]
+	});
+  new Image_viewer(
+	{
+		'viewer': $('#stugan .image-viewer.two'),
+		'thumbnails':
+			[
+				'img/thumbs/color/indoors/6.jpg',
+				'img/thumbs/color/indoors/1.jpg',
+				'img/thumbs/color/indoors/8.jpg',
+				'img/thumbs/color/indoors/9.jpg',
+				'img/thumbs/color/indoors/red-bedroom.jpg'
+			],
+		'images':
+			[
 				'img/color/indoors/6.jpg',
+				'img/color/indoors/1.jpg',
 				'img/color/indoors/8.jpg',
 				'img/color/indoors/9.jpg',
-				'img/color/indoors/blue-bedroom.jpg',
-				'img/color/indoors/red-bedroom.jpg',
-				'img/color/indoors/hallway.jpg',
-				'img/color/indoors/ski-storage.jpg',
-				'img/color/indoors/staircase.jpg',
-				'img/color/indoors/large-bedroom.jpg',
-				'img/color/indoors/wax-room.jpg'
+				'img/color/indoors/red-bedroom.jpg'
+			]
+	});
+  new Image_viewer(
+	{
+		'viewer': $('#stugan .image-viewer.three'),
+		'thumbnails':
+			[
+				'img/thumbs/color/1.jpg',
+				'img/thumbs/color/2.jpg',
+				'img/thumbs/color/3.jpg'
+			],
+		'images':
+			[
+				'img/color/1.jpg',
+				'img/color/2.jpg',
+				'img/color/3.jpg',
 			]
 	});
 	new Image_viewer(
@@ -88,7 +114,7 @@ $(window).ready(function ()
 			'container': $('.scroll-image-placeholder.second'),
 			'images': 
 				[
-					'img/color/indoors/1.jpg'
+					'img/color/indoors/8.jpg'
 				],
 			'active': 0,
 			'in_focus': 5,
@@ -99,7 +125,7 @@ $(window).ready(function ()
 			'container': $('.scroll-image-placeholder.third'),
 			'images': 
 				[
-					'img/color/1.jpg'
+					'img/color/indoors/9.jpg'
 				],
 			'active': 0,
 			'in_focus': 5,
@@ -110,7 +136,7 @@ $(window).ready(function ()
 			'container': $('.scroll-image-placeholder.fourth'),
 			'images': 
 				[
-					'img/color/3.jpg'
+					'img/color/indoors/1.jpg'
 				],
 			'active': 0,
 			'in_focus': 5,
@@ -158,7 +184,7 @@ $(window).ready(function ()
 			'container': $('.scroll-image.second'),
 			'images': 
 				[
-					'img/color/indoors/1.jpg'
+					'img/color/indoors/8.jpg'
 				],
 			'active': 0,
 			'in_focus': 5,
@@ -169,7 +195,7 @@ $(window).ready(function ()
 			'container': $('.scroll-image.third'),
 			'images': 
 				[
-					'img/color/1.jpg'
+					'img/color/indoors/9.jpg'
 				],
 			'active': 0,
 			'in_focus': 5,
@@ -180,7 +206,7 @@ $(window).ready(function ()
 			'container': $('.scroll-image.fourth'),
 			'images': 
 				[
-					'img/color/3.jpg'
+					'img/color/indoors/1.jpg'
 				],
 			'active': 0,
 			'in_focus': 5,
