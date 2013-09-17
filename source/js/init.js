@@ -19,7 +19,14 @@ $(window).ready(function ()
 				'img/thumbs/color/indoors/5.jpg',
 				'img/thumbs/color/indoors/6.jpg',
 				'img/thumbs/color/indoors/8.jpg',
-				'img/thumbs/color/indoors/9.jpg'
+				'img/thumbs/color/indoors/9.jpg',
+				'img/thumbs/color/indoors/blue-bedroom.jpg',
+				'img/thumbs/color/indoors/red-bedroom.jpg',
+				'img/thumbs/color/indoors/hallway.jpg',
+				'img/thumbs/color/indoors/ski-storage.jpg',
+				'img/thumbs/color/indoors/staircase.jpg',
+				'img/thumbs/color/indoors/large-bedroom.jpg',
+				'img/thumbs/color/indoors/wax-room.jpg'
 			],
 		'images':
 			[
@@ -27,7 +34,14 @@ $(window).ready(function ()
 				'img/color/indoors/5.jpg',
 				'img/color/indoors/6.jpg',
 				'img/color/indoors/8.jpg',
-				'img/color/indoors/9.jpg'
+				'img/color/indoors/9.jpg',
+				'img/color/indoors/blue-bedroom.jpg',
+				'img/color/indoors/red-bedroom.jpg',
+				'img/color/indoors/hallway.jpg',
+				'img/color/indoors/ski-storage.jpg',
+				'img/color/indoors/staircase.jpg',
+				'img/color/indoors/large-bedroom.jpg',
+				'img/color/indoors/wax-room.jpg'
 			]
 	});
 	new Image_viewer(
