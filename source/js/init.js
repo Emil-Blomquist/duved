@@ -19,6 +19,9 @@ $(window).ready(function ()
 				'img/thumbs/color/indoors/hallway.jpg',
 				'img/thumbs/color/indoors/blue-bedroom.jpg',
 				'img/thumbs/color/indoors/large-bedroom.jpg',
+				'img/thumbs/color/indoors/bathroom.jpg',
+				'img/thumbs/color/indoors/sauna.jpg',
+				'img/thumbs/color/indoors/toilet.jpg',
 				'img/thumbs/color/indoors/staircase.jpg',
 				'img/thumbs/color/indoors/wax-room.jpg',
         'img/thumbs/color/indoors/ski-storage.jpg'
@@ -29,6 +32,9 @@ $(window).ready(function ()
 				'img/color/indoors/hallway.jpg',
 				'img/color/indoors/blue-bedroom.jpg',
 				'img/color/indoors/large-bedroom.jpg',
+				'img/color/indoors/bathroom.jpg',
+				'img/color/indoors/sauna.jpg',
+				'img/color/indoors/toilet.jpg',
 				'img/color/indoors/staircase.jpg',
 				'img/color/indoors/wax-room.jpg',
 				'img/color/indoors/ski-storage.jpg'
@@ -43,6 +49,7 @@ $(window).ready(function ()
 				'img/thumbs/color/indoors/1.jpg',
 				'img/thumbs/color/indoors/8.jpg',
 				'img/thumbs/color/indoors/9.jpg',
+				'img/thumbs/color/indoors/stove.jpg',
 				'img/thumbs/color/indoors/red-bedroom.jpg'
 			],
 		'images':
@@ -51,6 +58,7 @@ $(window).ready(function ()
 				'img/color/indoors/1.jpg',
 				'img/color/indoors/8.jpg',
 				'img/color/indoors/9.jpg',
+				'img/color/indoors/stove.jpg',
 				'img/color/indoors/red-bedroom.jpg'
 			]
 	});

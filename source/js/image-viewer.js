@@ -39,7 +39,7 @@ var Image_viewer = function (json)
 		// mainly for later use
 		this.thumbnail_width = thumbnail.width();
 
-		wrapper_width = this.thumbnails.length*this.thumbnail_width + 20;	// + 20 for transition rounding marginal
+		wrapper_width = this.thumbnails.length*this.thumbnail_width + 10;	// + 10 for transition rounding marginal
 
 		wrapper.width(wrapper_width);
 
