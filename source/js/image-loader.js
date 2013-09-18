@@ -30,23 +30,21 @@ Image_loader.prototype.load_image = function (json)	// json = src, success
 		});
 		img.appendTo($('body'));
 
-		that = this;
-
 		img.load(function () 
 		{
 			var return_obj;
 
 			return_obj = 
 			{
-				'width': this.width,
-				'height': this.height,
+				'width': img.width(),
+				'height': img.height(),
 				'src': src
 			}
-
+      
 			success(return_obj);
 
 			// remove <img>
-			$(this).remove();
+			img.remove();
 		});
 	}
 	else

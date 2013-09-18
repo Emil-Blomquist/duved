@@ -25,15 +25,12 @@ Modal.prototype.create = function ()
 	loading.append('<div class="ball desktop-only"></div>')
 		   .append('<div></div>');
 
-
 	content_holder = jQuery('<div/>');
 	content_holder.addClass('content-holder hide');
-
 
 	modal.append(backdrop)
 		 .append(loading)
 		 .append(content_holder);
-
 
 	modal.prependTo($('body'));
 
@@ -63,8 +60,11 @@ Modal.prototype.show = function (content)
 	content_holder = modal.children('.content-holder');
 	loading = modal.children('.loading');
 
-	content_holder.html(content);
-
+  // clear html
+  content_holder.html('');
+  // append
+	content_holder.append(content);
+  
 	loading.addClass('hide');
 	content_holder.removeClass('hide');
 	modal.removeClass('hide');

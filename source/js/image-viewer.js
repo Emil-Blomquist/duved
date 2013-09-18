@@ -175,12 +175,12 @@ var Image_viewer = function (json)
 
 		window_width = $(window).width();
 		window_height = $(window).height();
-
+    
 		ratio = Math.min(window_width/data.width, window_height/data.height);
 
 		image = jQuery('<img/>');
 		image.attr('src', data.src);
-
+    
 		image_width = data.width*ratio*percentage;
 		image_height = data.height*ratio*percentage;
 
@@ -193,7 +193,7 @@ var Image_viewer = function (json)
 			top: (window_height - image_height)/2 + 'px',
 			left: (window_width - image_width)/2 + 'px'
 		});
-
+    
 		Modal.prototype.show(image);
 	}
 
